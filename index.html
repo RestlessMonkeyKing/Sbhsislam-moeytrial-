@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBHS Islam | Modern Islamic Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5d1a;
+            --secondary-color: #d4af37;
+            --accent-color: #2c5e2c;
+            --light-color: #f8f6f0;
+            --dark-color: #0d1b0d;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1b0d 0%, #1a3a1a 100%);
+            color: var(--light-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            background: rgba(13, 27, 13, 0.8);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+            color: var(--secondary-color);
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 28px;
+            background: linear-gradient(to right, var(--light-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjEiIGZpbGw9IiMxYTVkMWEiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+        
+        .hero h2 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover:after {
+            opacity: 1;
+        }
+        
+        .cta-button span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            padding: 25px;
+            background: rgba(26, 93, 26, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .card-button {
+            display: inline-block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .card-button:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .card-button:hover:after {
+            width: 100%;
+        }
+        
+        /* Audio Player */
+        .audio-player {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .progress-container {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 30%;
+            background: var(--secondary-color);
+            border-radius: 3px;
+            position: relative;
+        }
+        
+        .progress-bar:after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-color);
+        }
+        
+        /* Advice Section */
+        .advice-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .advice-container:before {
+            content: '\f10e';
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            opacity: 0.05;
+            color: var(--secondary-color);
+        }
+        
+        .advice-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            line-height: 1.8;
+        }
+        
+        .advice-author {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 50px 0 20px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .feature-card {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <h1>SBHS Islam</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-book-quran"></i> Quran</a></li>
+                    <li><a href="#"><i class="fas fa-volume-up"></i> Audio</a></li>
+                    <li><a href="#"><i class="fas fa-lightbulb"></i> Advice</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Seek Knowledge, <span>Find Peace</span></h2>
+                <p>SBHS Islam provides a modern platform for Quranic study, audio recitations, and daily Islamic guidance to nurture your spiritual journey.</p>
+                <a href="#" class="cta-button"><span>Begin Your Journey</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Resources</h2>
+            </div>
+            <div class="features-grid">
+                <!-- Quran Reading -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-book-quran floating"></i>
+                        </div>
+                        <h3>Quran Reading</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Explore the Holy Quran with our beautifully designed digital reader. Experience the divine words with ease and clarity.</p>
+                        <div class="quran-sample">
+                            <h4>Surah Al-Fatihah</h4>
+                            <p class="arabic" style="font-size: 1.8rem; text-align: right; margin: 15px 0;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                            <p style="font-style: italic;">"In the name of Allah, the Most Gracious, the Most Merciful."</p>
+                        </div>
+                        <a href="#" class="card-button">Read Full Surah <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Audio Quran -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-headphones floating"></i>
+                        </div>
+                        <h3>Audio Quran</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Listen to the melodious recitation of the Holy Quran by renowned Qaris. Perfect for meditation and memorization.</p>
+                        <div class="audio-player">
+                            <h4>Surah Al-Baqarah (1-5)</h4>
+                            <div class="player-controls">
+                                <div class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9rem;">Reciter: Mishary Rashid Alafasy</p>
+                        </div>
+                        <a href="#" class="card-button">Browse Recitations <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Islamic Advice -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb floating"></i>
+                        </div>
+                        <h3>Islamic Advice</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Daily guidance and wisdom from Islamic scholars to help you navigate life with faith and integrity.</p>
+                        <div class="advice-container">
+                            <p class="advice-text">"The best among you are those who have the best manners and character."</p>
+                            <p class="advice-author">- Prophet Muhammad (PBUH)</p>
+                        </div>
+                        <a href="#" class="card-button">More Wisdom <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SBHS Islam</h3>
+                    <p>Providing modern Islamic resources to nurture faith, knowledge, and spiritual growth for the global Muslim community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Quran</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Audio</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Advice</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Prayer Times</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Islamic Calendar</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Hadith Collection</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Islamic Articles</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Community Forum</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Islamic Center, South Brisbane High School</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> contact@sbhsislam.org</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 SBHS Islam. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> for the Ummah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Audio player functionality
+        const playBtn = document.querySelector('.play-btn');
+        const playIcon = playBtn.querySelector('i');
+        
+        playBtn.addEventListener('click', function() {
+            if (playIcon.classList.contains('fa-play')) {
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = 0;
+            observer.observe(card);
+        });
+        
+        // Islamic advice rotation
+        const adviceContainer = document.querySelector('.advice-text');
+        const authorContainer = document.querySelector('.advice-author');
+        
+        const adviceList = [
+            {
+                text: "Allah does not burden a soul beyond that it can bear.",
+                author: "Quran 2:286"
+            },
+            {
+                text: "Speak good or remain silent.",
+                author: "Prophet Muhammad (PBUH)"
+            },
+            {
+                text: "The strongest among you is the one who controls his anger.",
+                author: "Prophet Muhammad (PBUH)"
+            },
+            {
+                text: "Verily, with hardship comes ease.",
+                author: "Quran 94:6"
+            }
+        ];
+        
+        let currentAdvice = 0;
+        
+        function rotateAdvice() {
+            currentAdvice = (currentAdvice + 1) % adviceList.length;
+            adviceContainer.style.opacity = 0;
+            authorContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                adviceContainer.textContent = adviceList[currentAdvice].text;
+                authorContainer.textContent = adviceList[currentAdvice].author;
+                adviceContainer.style.opacity = 1;
+                authorContainer.style.opacity = 1;
+            }, 500);
+        }
+        
+        // Rotate advice every 8 seconds
+        setInterval(rotateAdvice, 8000);
+    </script>
+</body>
+</html>
