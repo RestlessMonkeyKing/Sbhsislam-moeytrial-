@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBHS Islam | Modern Islamic Support</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* SBHS Theme Colors */
         :root {
-            --primary-color: #1a5d1a;
-            --secondary-color: #d4af37;
-            --accent-color: #2c5e2c;
-            --light-color: #f8f6f0;
-            --dark-color: #0d1b0d;
+            --sbhs-blue: #003366;
+            --sbhs-gold: #FFCC00;
+            --sbhs-light-blue: #336699;
+            --light-color: #f8f9fa;
+            --dark-color: #001a33;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --page-bg: linear-gradient(135deg, var(--dark-color) 0%, var(--sbhs-blue) 100%);
         }
         
         * {
@@ -24,12 +26,13 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0d1b0d 0%, #1a3a1a 100%);
+            background: var(--page-bg);
             color: var(--light-color);
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
             background-attachment: fixed;
+            transition: background 0.5s ease;
         }
         
         .container {
@@ -49,7 +52,8 @@
             z-index: 1000;
             transition: var(--transition);
             backdrop-filter: blur(10px);
-            background: rgba(13, 27, 13, 0.8);
+            background: rgba(0, 26, 51, 0.9);
+            border-bottom: 2px solid var(--sbhs-gold);
         }
         
         header.scrolled {
@@ -71,14 +75,14 @@
         
         .logo-icon {
             font-size: 28px;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         .logo h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 28px;
-            background: linear-gradient(to right, var(--light-color), var(--secondary-color));
+            background: linear-gradient(to right, var(--light-color), var(--sbhs-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -105,12 +109,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--secondary-color);
+            background: var(--sbhs-gold);
             transition: var(--transition);
         }
         
         nav a:hover {
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         nav a:hover:after {
@@ -134,7 +138,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjEiIGZpbGw9IiMxYTVkMWEiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzMzNjY5OSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
             opacity: 0.3;
             z-index: -1;
         }
@@ -153,7 +157,7 @@
         }
         
         .hero h2 span {
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         .hero p {
@@ -164,7 +168,7 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--sbhs-blue), var(--sbhs-light-blue));
             color: white;
             padding: 15px 35px;
             border-radius: 50px;
@@ -182,27 +186,40 @@
         .cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .cta-button:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .cta-button:hover:after {
-            opacity: 1;
+            background: linear-gradient(135deg, var(--sbhs-light-blue), var(--sbhs-blue));
         }
         
         .cta-button span {
             position: relative;
             z-index: 2;
+        }
+        
+        .school-badge {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,204,0,0.1) 0%, rgba(255,204,0,0) 70%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .badge-inner {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 51, 102, 0.7);
+            border-radius: 50%;
+            border: 3px solid var(--sbhs-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+            color: var(--sbhs-gold);
         }
         
         /* Features Section */
@@ -232,7 +249,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: var(--secondary-color);
+            background: var(--sbhs-gold);
             border-radius: 2px;
         }
         
@@ -248,7 +265,7 @@
             overflow: hidden;
             transition: var(--transition);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255, 204, 0, 0.1);
             transform: translateY(20px);
             opacity: 0;
             animation: fadeInUp 0.8s forwards;
@@ -266,26 +283,28 @@
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 204, 0, 0.3);
         }
         
         .card-header {
             padding: 25px;
-            background: rgba(26, 93, 26, 0.2);
+            background: rgba(0, 51, 102, 0.2);
             display: flex;
             align-items: center;
             gap: 15px;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.1);
         }
         
         .card-icon {
             width: 60px;
             height: 60px;
-            background: var(--primary-color);
+            background: var(--sbhs-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         .card-header h3 {
@@ -304,7 +323,7 @@
         
         .card-button {
             display: inline-block;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
@@ -318,12 +337,35 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--secondary-color);
+            background: var(--sbhs-gold);
             transition: var(--transition);
         }
         
         .card-button:hover:after {
             width: 100%;
+        }
+        
+        /* Quran Section */
+        .quran-sample {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .quran-sample .arabic {
+            font-size: 2.2rem;
+            line-height: 1.8;
+            margin: 15px 0;
+            font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+            color: #e6d8a9;
+        }
+        
+        .quran-sample .translation {
+            font-style: italic;
+            margin: 15px 0;
+            color: #cccccc;
         }
         
         /* Audio Player */
@@ -332,6 +374,23 @@
             border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
+        }
+        
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .reciter-select {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid var(--sbhs-gold);
+            padding: 8px 15px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 200px;
         }
         
         .player-controls {
@@ -344,18 +403,20 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary-color);
+            background: var(--sbhs-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
             font-size: 18px;
             cursor: pointer;
             transition: var(--transition);
+            border: 2px solid var(--sbhs-gold);
         }
         
         .play-btn:hover {
             transform: scale(1.1);
+            background: var(--sbhs-light-blue);
         }
         
         .progress-container {
@@ -370,7 +431,7 @@
         .progress-bar {
             height: 100%;
             width: 30%;
-            background: var(--secondary-color);
+            background: var(--sbhs-gold);
             border-radius: 3px;
             position: relative;
         }
@@ -385,6 +446,7 @@
             height: 12px;
             border-radius: 50%;
             background: var(--light-color);
+            box-shadow: 0 0 5px rgba(255, 204, 0, 0.8);
         }
         
         /* Advice Section */
@@ -396,7 +458,7 @@
             margin-top: 20px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255, 204, 0, 0.1);
         }
         
         .advice-container:before {
@@ -407,7 +469,7 @@
             left: 20px;
             font-size: 60px;
             opacity: 0.05;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         .advice-text {
@@ -417,12 +479,16 @@
             position: relative;
             z-index: 2;
             line-height: 1.8;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .advice-author {
             font-size: 1.1rem;
             font-weight: 500;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
         }
         
         /* Footer */
@@ -430,7 +496,7 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 50px 0 20px;
             margin-top: 100px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--sbhs-gold);
         }
         
         .footer-content {
@@ -454,7 +520,7 @@
             left: 0;
             width: 40px;
             height: 3px;
-            background: var(--secondary-color);
+            background: var(--sbhs-gold);
         }
         
         .footer-column p {
@@ -477,11 +543,13 @@
             justify-content: center;
             color: var(--light-color);
             transition: var(--transition);
+            border: 1px solid rgba(255, 204, 0, 0.2);
         }
         
         .social-links a:hover {
-            background: var(--primary-color);
+            background: var(--sbhs-blue);
             transform: translateY(-5px);
+            border-color: var(--sbhs-gold);
         }
         
         .footer-links {
@@ -497,11 +565,18 @@
             text-decoration: none;
             transition: var(--transition);
             opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links i {
+            color: var(--sbhs-gold);
         }
         
         .footer-links a:hover {
             opacity: 1;
-            color: var(--secondary-color);
+            color: var(--sbhs-gold);
             padding-left: 5px;
         }
         
@@ -529,7 +604,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
             100% {
                 transform: translateY(0);
@@ -540,10 +615,155 @@
             animation: float 4s ease-in-out infinite;
         }
         
+        /* Quran Audio Page */
+        .quran-audio-page {
+            display: none;
+            padding: 100px 0 50px;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sbhs-gold);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .quran-player {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 204, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .quran-player-header {
+            padding: 20px;
+            background: rgba(0, 51, 102, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.1);
+        }
+        
+        .quran-player-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .quran-player-controls {
+            padding: 20px;
+        }
+        
+        .quran-player-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .quran-player-label {
+            font-size: 14px;
+            color: var(--sbhs-gold);
+            min-width: 80px;
+        }
+        
+        .quran-player-select, .quran-player-input {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: 1px solid var(--sbhs-gold);
+            padding: 10px 15px;
+            border-radius: 12px;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .quran-player-button {
+            background: linear-gradient(135deg, var(--sbhs-blue), var(--sbhs-light-blue));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .quran-player-button:hover {
+            background: linear-gradient(135deg, var(--sbhs-light-blue), var(--sbhs-blue));
+            transform: translateY(-2px);
+        }
+        
+        .quran-player-audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .quran-player-ayahs {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .quran-player-ayah {
+            padding: 15px;
+            border-bottom: 1px dashed rgba(255, 204, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+        
+        .quran-player-ayah:hover {
+            background: rgba(0, 51, 102, 0.2);
+        }
+        
+        .quran-player-ayah.active {
+            background: rgba(0, 51, 102, 0.3);
+            border-left: 3px solid var(--sbhs-gold);
+        }
+        
+        .quran-player-arabic {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 1.8rem;
+            line-height: 2.1;
+            direction: rtl;
+            text-align: right;
+            color: #e6d8a9;
+            margin-bottom: 10px;
+        }
+        
+        .quran-player-english {
+            font-size: 1rem;
+            color: #d6ddff;
+        }
+        
         /* Responsive */
+        @media (max-width: 992px) {
+            .school-badge {
+                display: none;
+            }
+            
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             nav ul {
@@ -568,6 +788,16 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quran-player-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -583,94 +813,206 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-book-quran"></i> Quran</a></li>
-                    <li><a href="#"><i class="fas fa-volume-up"></i> Audio</a></li>
-                    <li><a href="#"><i class="fas fa-lightbulb"></i> Advice</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#" class="nav-home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="nav-quran"><i class="fas fa-book-quran"></i> Quran</a></li>
+                    <li><a href="#" class="nav-audio"><i class="fas fa-volume-up"></i> Audio</a></li>
+                    <li><a href="#" class="nav-advice"><i class="fas fa-lightbulb"></i> Advice</a></li>
+                    <li><a href="#" class="nav-about"><i class="fas fa-info-circle"></i> About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Seek Knowledge, <span>Find Peace</span></h2>
-                <p>SBHS Islam provides a modern platform for Quranic study, audio recitations, and daily Islamic guidance to nurture your spiritual journey.</p>
-                <a href="#" class="cta-button"><span>Begin Your Journey</span></a>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Seek Knowledge, <span>Find Peace</span></h2>
+                    <p>SBHS Islamic Society provides a modern platform for Quranic study, audio recitations, and daily Islamic guidance for Sydney Boys High School students.</p>
+                    <a href="#" class="cta-button"><span>Begin Your Journey</span></a>
+                </div>
+                <div class="school-badge">
+                    <div class="badge-inner">
+                        <i class="fas fa-school"></i>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Resources</h2>
-            </div>
-            <div class="features-grid">
-                <!-- Quran Reading -->
-                <div class="feature-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-book-quran floating"></i>
-                        </div>
-                        <h3>Quran Reading</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>Explore the Holy Quran with our beautifully designed digital reader. Experience the divine words with ease and clarity.</p>
-                        <div class="quran-sample">
-                            <h4>Surah Al-Fatihah</h4>
-                            <p class="arabic" style="font-size: 1.8rem; text-align: right; margin: 15px 0;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                            <p style="font-style: italic;">"In the name of Allah, the Most Gracious, the Most Merciful."</p>
-                        </div>
-                        <a href="#" class="card-button">Read Full Surah <i class="fas fa-arrow-right"></i></a>
-                    </div>
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Resources</h2>
                 </div>
-                
-                <!-- Audio Quran -->
-                <div class="feature-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-headphones floating"></i>
-                        </div>
-                        <h3>Audio Quran</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>Listen to the melodious recitation of the Holy Quran by renowned Qaris. Perfect for meditation and memorization.</p>
-                        <div class="audio-player">
-                            <h4>Surah Al-Baqarah (1-5)</h4>
-                            <div class="player-controls">
-                                <div class="play-btn">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="progress-container">
-                                    <div class="progress-bar"></div>
-                                </div>
+                <div class="features-grid">
+                    <!-- Quran Reading -->
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-book-quran floating"></i>
                             </div>
-                            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9rem;">Reciter: Mishary Rashid Alafasy</p>
+                            <h3>Quran Reading</h3>
                         </div>
-                        <a href="#" class="card-button">Browse Recitations <i class="fas fa-arrow-right"></i></a>
+                        <div class="card-content">
+                            <p>Explore the Holy Quran with our beautifully designed digital reader. Experience the divine words with ease and clarity.</p>
+                            <div class="quran-sample">
+                                <h4>Surah Al-Fatihah - The Opening</h4>
+                                <p class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                                <p class="translation">"In the name of Allah, the Most Gracious, the Most Merciful."</p>
+                                <p class="arabic">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
+                                <p class="translation">"All praise is due to Allah, Lord of all the worlds."</p>
+                            </div>
+                            <a href="#" class="card-button">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Audio Quran -->
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-headphones floating"></i>
+                            </div>
+                            <h3>Audio Quran</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Listen to the melodious recitation of the Holy Quran by renowned Qaris. Perfect for meditation and memorization.</p>
+                            <div class="audio-player">
+                                <div class="player-header">
+                                    <h4>Surah Al-Fatihah</h4>
+                                    <select class="reciter-select" id="reciter-select">
+                                        <option value="mishari">Mishari Rashid Alafasy</option>
+                                        <option value="abdulbasit">Abdul Basit Abdul Samad</option>
+                                        <option value="maher">Maher Al Muaiqly</option>
+                                        <option value="hudhaify">Ali Al Hudhaify</option>
+                                        <option value="shatri">Saad Al Ghamdi</option>
+                                    </select>
+                                </div>
+                                <div class="player-controls">
+                                    <div class="play-btn" id="play-btn">
+                                        <i class="fas fa-play" id="play-icon"></i>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" id="progress-bar"></div>
+                                    </div>
+                                </div>
+                                <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9rem;" id="current-reciter">Reciter: Mishari Rashid Alafasy</p>
+                            </div>
+                            <a href="#" class="card-button nav-audio">More Recitations <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Islamic Advice -->
+                    <div class="feature-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb floating"></i>
+                            </div>
+                            <h3>Islamic Advice</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Daily guidance and wisdom from Islamic scholars to help you navigate life with faith and integrity.</p>
+                            <div class="advice-container">
+                                <p class="advice-text" id="advice-text">"The best among you are those who have the best manners and character."</p>
+                                <p class="advice-author" id="advice-author">- Prophet Muhammad (PBUH)</p>
+                            </div>
+                            <a href="#" class="card-button">More Wisdom <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Islamic Advice -->
-                <div class="feature-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-lightbulb floating"></i>
+            </div>
+        </section>
+
+        <!-- SBHS Islamic Society Section -->
+        <section class="features" style="background: rgba(0,0,0,0.1); padding: 80px 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>SBHS Islamic Society</h2>
+                </div>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                        The Sydney Boys High School Islamic Society aims to provide a supportive environment for Muslim students to practice their faith, learn about Islam, and build a strong community within the school.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 200px; border: 1px solid rgba(255,204,0,0.1);">
+                            <div style="font-size: 2.5rem; color: var(--sbhs-gold); margin-bottom: 15px;">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <h3>Prayer Times</h3>
+                            <p>Daily prayer schedules</p>
                         </div>
-                        <h3>Islamic Advice</h3>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 200px; border: 1px solid rgba(255,204,0,0.1);">
+                            <div style="font-size: 2.5rem; color: var(--sbhs-gold); margin-bottom: 15px;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community</h3>
+                            <p>Join our student group</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; width: 200px; border: 1px solid rgba(255,204,0,0.1);">
+                            <div style="font-size: 2.5rem; color: var(--sbhs-gold); margin-bottom: 15px;">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Resources</h3>
+                            <p>Study materials & guides</p>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>Daily guidance and wisdom from Islamic scholars to help you navigate life with faith and integrity.</p>
-                        <div class="advice-container">
-                            <p class="advice-text">"The best among you are those who have the best manners and character."</p>
-                            <p class="advice-author">- Prophet Muhammad (PBUH)</p>
-                        </div>
-                        <a href="#" class="card-button">More Wisdom <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Quran Audio Player Page -->
+    <section class="quran-audio-page" id="quran-audio-page">
+        <div class="container">
+            <a href="#" class="back-button" id="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="section-title">
+                <h2>Quran Audio Player</h2>
+                <p>Listen to beautiful recitations of the Holy Quran</p>
+            </div>
+            
+            <div class="quran-player">
+                <div class="quran-player-header">
+                    <div class="card-icon">
+                        <i class="fas fa-volume-up floating"></i>
+                    </div>
+                    <h2>Quran Recitations</h2>
+                </div>
+                
+                <div class="quran-player-controls">
+                    <div class="quran-player-row">
+                        <span class="quran-player-label">Surah</span>
+                        <select class="quran-player-select" id="surahSelect">
+                            <option value="1">1. Al-Fatihah (The Opening)</option>
+                            <option value="2">2. Al-Baqarah (The Cow)</option>
+                            <option value="3">3. Ali 'Imran (Family of Imran)</option>
+                            <option value="4">4. An-Nisa (The Women)</option>
+                            <option value="5">5. Al-Ma'idah (The Table Spread)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="quran-player-row">
+                        <span class="quran-player-label">Reciter</span>
+                        <select class="quran-player-select" id="reciterSelect">
+                            <option value="ar.alafasy">Mishary Rashid Alafasy</option>
+                            <option value="ar.abdulbasit">Abdul Basit Abdul Samad</option>
+                            <option value="ar.maher">Maher Al Muaiqly</option>
+                            <option value="ar.hudhaify">Ali Al Hudhaify</option>
+                            <option value="ar.shatri">Saad Al Ghamdi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="quran-player-row">
+                        <span class="quran-player-label">Play</span>
+                        <audio class="quran-player-audio" id="quranAudio" controls></audio>
+                    </div>
+                    
+                    <div class="quran-player-ayahs" id="ayahsContainer">
+                        <!-- Ayahs will be loaded here -->
                     </div>
                 </div>
             </div>
@@ -683,11 +1025,11 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>SBHS Islam</h3>
-                    <p>Providing modern Islamic resources to nurture faith, knowledge, and spiritual growth for the global Muslim community.</p>
+                    <p>Providing Islamic resources to nurture faith, knowledge, and spiritual growth for Sydney Boys High School students.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -695,11 +1037,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Home</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Quran</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Audio</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Advice</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> About Us</a></li>
+                        <li><a href="#" class="nav-home"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#" class="nav-quran"><i class="fas fa-arrow-right"></i> Quran</a></li>
+                        <li><a href="#" class="nav-audio"><i class="fas fa-arrow-right"></i> Audio Recitations</a></li>
+                        <li><a href="#" class="nav-advice"><i class="fas fa-arrow-right"></i> Islamic Advice</a></li>
+                        <li><a href="#" class="nav-about"><i class="fas fa-arrow-right"></i> About Us</a></li>
                     </ul>
                 </div>
                 
@@ -709,21 +1051,22 @@
                         <li><a href="#"><i class="fas fa-arrow-right"></i> Prayer Times</a></li>
                         <li><a href="#"><i class="fas fa-arrow-right"></i> Islamic Calendar</a></li>
                         <li><a href="#"><i class="fas fa-arrow-right"></i> Hadith Collection</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Islamic Articles</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Community Forum</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Student Resources</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Events</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Islamic Center, South Brisbane High School</p>
-                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
-                    <p><i class="fas fa-envelope"></i> contact@sbhsislam.org</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Sydney Boys High School</p>
+                    <p>Moore Park, NSW 2021</p>
+                    <p><i class="fas fa-phone"></i> (02) 9361 6910</p>
+                    <p><i class="fas fa-envelope"></i> islamicsociety@sbhs.nsw.edu.au</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 SBHS Islam. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> for the Ummah.</p>
+                <p>&copy; 2023 SBHS Islamic Society. All rights reserved. Proudly part of Sydney Boys High School.</p>
             </div>
         </div>
     </footer>
@@ -740,20 +1083,112 @@
         });
         
         // Audio player functionality
-        const playBtn = document.querySelector('.play-btn');
-        const playIcon = playBtn.querySelector('i');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const progressBar = document.getElementById('progress-bar');
+        const reciterSelect = document.getElementById('reciter-select');
+        const currentReciter = document.getElementById('current-reciter');
         
-        playBtn.addEventListener('click', function() {
-            if (playIcon.classList.contains('fa-play')) {
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-            } else {
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
+        let isPlaying = false;
+        let progress = 0;
+        let progressInterval;
+        
+        if (playBtn) {
+            playBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    clearInterval(progressInterval);
+                } else {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    // Simulate audio progress
+                    progressInterval = setInterval(() => {
+                        progress += 0.5;
+                        if (progress > 100) progress = 0;
+                        progressBar.style.width = progress + '%';
+                    }, 500);
+                }
+                isPlaying = !isPlaying;
+            });
+        }
+        
+        if (reciterSelect) {
+            reciterSelect.addEventListener('change', function() {
+                currentReciter.textContent = 'Reciter: ' + reciterSelect.options[reciterSelect.selectedIndex].text;
+                if (isPlaying) {
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    clearInterval(progressInterval);
+                    isPlaying = false;
+                    progress = 0;
+                    progressBar.style.width = progress + '%';
+                }
+            });
+        }
+        
+        if (document.querySelector('.progress-container')) {
+            document.querySelector('.progress-container').addEventListener('click', function(e) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                progress = (clickX / width) * 100;
+                progressBar.style.width = progress + '%';
+            });
+        }
+        
+        // Islamic advice rotation
+        const adviceText = document.getElementById('advice-text');
+        const adviceAuthor = document.getElementById('advice-author');
+        
+        const adviceList = [
+            {
+                text: "Allah does not burden a soul beyond that it can bear.",
+                author: "Quran 2:286"
+            },
+            {
+                text: "Speak good or remain silent.",
+                author: "Prophet Muhammad (PBUH)"
+            },
+            {
+                text: "The strongest among you is the one who controls his anger.",
+                author: "Prophet Muhammad (PBUH)"
+            },
+            {
+                text: "Verily, with hardship comes ease.",
+                author: "Quran 94:6"
+            },
+            {
+                text: "Seek knowledge from the cradle to the grave.",
+                author: "Prophet Muhammad (PBUH)"
+            },
+            {
+                text: "The best charity is that given when one is in need.",
+                author: "Prophet Muhammad (PBUH)"
             }
-        });
+        ];
         
-        // Animate elements on scroll
+        let currentAdvice = 0;
+        
+        function rotateAdvice() {
+            // Fade out
+            adviceText.style.opacity = 0;
+            adviceAuthor.style.opacity = 0;
+            
+            setTimeout(() => {
+                currentAdvice = (currentAdvice + 1) % adviceList.length;
+                adviceText.textContent = adviceList[currentAdvice].text;
+                adviceAuthor.textContent = "- " + adviceList[currentAdvice].author;
+                
+                // Fade in
+                adviceText.style.opacity = 1;
+                adviceAuthor.style.opacity = 1;
+            }, 500);
+        }
+        
+        // Rotate advice every 8 seconds
+        setInterval(rotateAdvice, 8000);
+        
+        // Animate feature cards when they come into view
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -774,46 +1209,128 @@
             observer.observe(card);
         });
         
-        // Islamic advice rotation
-        const adviceContainer = document.querySelector('.advice-text');
-        const authorContainer = document.querySelector('.advice-author');
+        // Quran Audio Player Functionality
+        const quranAudioPage = document.getElementById('quran-audio-page');
+        const mainContent = document.querySelector('.main-content');
+        const backButton = document.getElementById('back-button');
+        const surahSelect = document.getElementById('surahSelect');
+        const reciterSelectQuran = document.getElementById('reciterSelect');
+        const quranAudio = document.getElementById('quranAudio');
+        const ayahsContainer = document.getElementById('ayahsContainer');
         
-        const adviceList = [
-            {
-                text: "Allah does not burden a soul beyond that it can bear.",
-                author: "Quran 2:286"
-            },
-            {
-                text: "Speak good or remain silent.",
-                author: "Prophet Muhammad (PBUH)"
-            },
-            {
-                text: "The strongest among you is the one who controls his anger.",
-                author: "Prophet Muhammad (PBUH)"
-            },
-            {
-                text: "Verily, with hardship comes ease.",
-                author: "Quran 94:6"
-            }
-        ];
+        // Navigation to audio page
+        document.querySelectorAll('.nav-audio').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                mainContent.style.display = 'none';
+                quranAudioPage.style.display = 'block';
+                document.body.style.background = 'linear-gradient(180deg, #070b18, #0b1020 30%, #0b1020 70%, #0a0f22)';
+                window.scrollTo(0, 0);
+                loadSurah(1);
+            });
+        });
         
-        let currentAdvice = 0;
-        
-        function rotateAdvice() {
-            currentAdvice = (currentAdvice + 1) % adviceList.length;
-            adviceContainer.style.opacity = 0;
-            authorContainer.style.opacity = 0;
-            
-            setTimeout(() => {
-                adviceContainer.textContent = adviceList[currentAdvice].text;
-                authorContainer.textContent = adviceList[currentAdvice].author;
-                adviceContainer.style.opacity = 1;
-                authorContainer.style.opacity = 1;
-            }, 500);
+        // Back to home page
+        if (backButton) {
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                mainContent.style.display = 'block';
+                quranAudioPage.style.display = 'none';
+                document.body.style.background = 'var(--page-bg)';
+                window.scrollTo(0, 0);
+            });
         }
         
-        // Rotate advice every 8 seconds
-        setInterval(rotateAdvice, 8000);
+        // Load Surah
+        async function loadSurah(surahNumber) {
+            // Show loading state
+            ayahsContainer.innerHTML = '<p style="text-align: center; padding: 20px;">Loading Surah...</p>';
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 800));
+                
+                // Sample data for demonstration
+                const ayahs = [
+                    {
+                        number: 1,
+                        text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                        translation: "In the name of Allah, the Most Gracious, the Most Merciful."
+                    },
+                    {
+                        number: 2,
+                        text: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+                        translation: "All praise is due to Allah, Lord of all the worlds."
+                    },
+                    {
+                        number: 3,
+                        text: "الرَّحْمَٰنِ الرَّحِيمِ",
+                        translation: "The Most Gracious, the Most Merciful."
+                    },
+                    {
+                        number: 4,
+                        text: "مَالِكِ يَوْمِ الدِّينِ",
+                        translation: "Master of the Day of Judgment."
+                    },
+                    {
+                        number: 5,
+                        text: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+                        translation: "You alone we worship, and You alone we ask for help."
+                    },
+                    {
+                        number: 6,
+                        text: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+                        translation: "Guide us to the straight path."
+                    },
+                    {
+                        number: 7,
+                        text: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+                        translation: "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray."
+                    }
+                ];
+                
+                // Update audio source
+                const reciter = reciterSelectQuran.value;
+                quranAudio.src = `https://cdn.islamic.network/quran/audio-surah/128/${reciter}/${surahNumber}.mp3`;
+                
+                // Render ayahs
+                ayahsContainer.innerHTML = '';
+                ayahs.forEach(ayah => {
+                    const ayahElement = document.createElement('div');
+                    ayahElement.className = 'quran-player-ayah';
+                    ayahElement.innerHTML = `
+                        <div class="quran-player-arabic">${ayah.text}</div>
+                        <div class="quran-player-english">${ayah.number}. ${ayah.translation}</div>
+                    `;
+                    ayahsContainer.appendChild(ayahElement);
+                });
+                
+            } catch (error) {
+                console.error('Error loading surah:', error);
+                ayahsContainer.innerHTML = '<p style="text-align: center; padding: 20px; color: #ff6b6b;">Error loading surah. Please try again later.</p>';
+            }
+        }
+        
+        // Surah selection change
+        if (surahSelect) {
+            surahSelect.addEventListener('change', function() {
+                const surahNumber = this.value;
+                loadSurah(surahNumber);
+            });
+        }
+        
+        // Reciter selection change
+        if (reciterSelectQuran) {
+            reciterSelectQuran.addEventListener('change', function() {
+                const surahNumber = surahSelect.value;
+                loadSurah(surahNumber);
+            });
+        }
+        
+        // Initialize Quran audio page
+        if (surahSelect && reciterSelectQuran) {
+            loadSurah(1);
+        }
     </script>
 </body>
 </html>
