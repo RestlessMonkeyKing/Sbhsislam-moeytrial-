@@ -621,6 +621,12 @@
             padding: 100px 0 50px;
         }
         
+        /* Quran Book Page */
+        .quran-book-page {
+            display: none;
+            padding: 100px 0 50px;
+        }
+        
         .back-button {
             display: inline-flex;
             align-items: center;
@@ -648,7 +654,6 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            border-bottom: 1px solid rgba(255, 204, 0, 0.1);
         }
         
         .quran-player-header h2 {
@@ -745,6 +750,182 @@
             color: #d6ddff;
         }
         
+        /* 3D Quran Book Styles */
+        .quran-book-page .panel {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 12px;
+            border: 1px solid rgba(255, 204, 0, 0.1);
+        }
+        
+        .quran-book-page h1 {
+            font-size: 18px;
+            margin: 4px 0;
+            color: #dfe8ff;
+        }
+        
+        .quran-book-page label {
+            font-size: 13px;
+            color: #9fb0ff;
+        }
+        
+        .quran-book-page select, 
+        .quran-book-page button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(0, 51, 102, 0.3);
+            color: var(--light-color);
+            outline: none;
+        }
+        
+        .quran-book-page .row {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .quran-book-page .controls {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .quran-book-page .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 13px;
+        }
+        
+        /* Book area */
+        #stage {
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .book-wrap {
+            width: min(92vw, 920px);
+            height: min(64vh, 640px);
+            position: relative;
+            perspective: 1800px;
+        }
+        
+        .book {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .page {
+            position: relative;
+            width: 100%;
+            height: 92%;
+            background: #0f1a30;
+            border-radius: 14px;
+            padding: 34px 36px;
+            box-shadow: 0 30px 60px rgba(2, 8, 23, 0.6);
+            overflow: hidden;
+        }
+        
+        .page .hdr {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #9fb0ff;
+        }
+        
+        .page .arab {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 34px;
+            line-height: 2;
+            direction: rtl;
+            text-align: right;
+            color: #e6d8a9;
+        }
+        
+        .page .eng {
+            font-size: 16px;
+            color: #d6ddff;
+            margin-top: 8px;
+        }
+        
+        .page.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7aa7;
+            font-size: 18px;
+        }
+        
+        /* Simple page-curl effect using pseudo element + transform + mask */
+        .page::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 24%;
+            height: 100%;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.06));
+            border-radius: 0 14px 14px 0;
+        }
+        
+        /* flip element used for animated curling */
+        .flip-curl {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 50%;
+            height: 94%;
+            transform-origin: left center;
+            pointer-events: none;
+            z-index: 50;
+        }
+        
+        .flip-curl .inner {
+            width: 100%;
+            height: 100%;
+            background: #0f1a30;
+            border-radius: 14px 0 0 14px;
+            box-shadow: 0 30px 60px rgba(2, 8, 23, 0.6);
+            overflow: hidden;
+        }
+        
+        .flip-curl .curl-shadow {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 60px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0));
+            mix-blend-mode: multiply;
+        }
+        
+        .controls-row {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .muted {
+            color: #9fb0ff;
+        }
+        
+        .footer {
+            margin-top: 12px;
+            color: #9fb0ff;
+            font-size: 13px;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .school-badge {
@@ -773,6 +954,10 @@
             .feature-card {
                 margin-bottom: 30px;
             }
+            
+            .book-wrap {
+                height: min(50vh, 500px);
+            }
         }
         
         @media (max-width: 576px) {
@@ -797,6 +982,15 @@
             .quran-player-row {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            
+            .book {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .page {
+                height: 45%;
             }
         }
     </style>
@@ -865,7 +1059,7 @@
                                 <p class="arabic">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
                                 <p class="translation">"All praise is due to Allah, Lord of all the worlds."</p>
                             </div>
-                            <a href="#" class="card-button">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="card-button nav-quran">Continue Reading <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -966,7 +1160,7 @@
     <!-- Quran Audio Player Page -->
     <section class="quran-audio-page" id="quran-audio-page">
         <div class="container">
-            <a href="#" class="back-button" id="back-button">
+            <a href="#" class="back-button" id="back-button-audio">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
             
@@ -1015,6 +1209,55 @@
                         <!-- Ayahs will be loaded here -->
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Book Page -->
+    <section class="quran-book-page" id="quran-book-page">
+        <div class="container">
+            <a href="#" class="back-button" id="back-button-quran">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="wrap">
+                <aside class="panel">
+                    <h1>3D Qur'an Book — Live</h1>
+                    <div class="controls">
+                        <label for="surahSelectBook">Choose Surah</label>
+                        <select id="surahSelectBook"><option>Loading...</option></select>
+
+                        <label for="mode">Show</label>
+                        <select id="mode"><option value="both">Arabic + English</option><option value="ar">Arabic only</option><option value="en">English only</option></select>
+
+                        <div class="controls-row">
+                            <button id="prevBtn">⟨⟨ Prev</button>
+                            <button id="nextBtn">Next ⟩⟩</button>
+                        </div>
+
+                        <div class="controls-row">
+                            <button id="prevSurah">Prev Surah</button>
+                            <button id="nextSurah">Next Surah</button>
+                        </div>
+
+                        <div style="display:flex;gap:8px;align-items:center">
+                            <span class="pill" id="pageIndicator">—</span>
+                            <span class="pill" id="ayahIndicator">—</span>
+                        </div>
+
+                        <div class="footer">Text via <strong>Al Quran Cloud</strong>. Pagination & page-curl are client-side.</div>
+                    </div>
+                </aside>
+
+                <main id="stage" class="panel">
+                    <div class="book-wrap" id="bookWrap">
+                        <div class="book" id="book">
+                            <div class="page" id="leftPage"><div class="hdr"></div><div class="content"></div></div>
+                            <div class="page" id="rightPage"><div class="hdr"></div><div class="content"></div></div>
+                        </div>
+                        <div class="flip-curl" id="flipCurl" style="display:none"><div class="inner" id="flipInner"><div class="curl-shadow"></div></div></div>
+                    </div>
+                </main>
             </div>
         </div>
     </section>
@@ -1209,14 +1452,36 @@
             observer.observe(card);
         });
         
-        // Quran Audio Player Functionality
-        const quranAudioPage = document.getElementById('quran-audio-page');
+        // Navigation between pages
         const mainContent = document.querySelector('.main-content');
-        const backButton = document.getElementById('back-button');
-        const surahSelect = document.getElementById('surahSelect');
-        const reciterSelectQuran = document.getElementById('reciterSelect');
-        const quranAudio = document.getElementById('quranAudio');
-        const ayahsContainer = document.getElementById('ayahsContainer');
+        const quranAudioPage = document.getElementById('quran-audio-page');
+        const quranBookPage = document.getElementById('quran-book-page');
+        const backButtonAudio = document.getElementById('back-button-audio');
+        const backButtonQuran = document.getElementById('back-button-quran');
+        
+        // Navigation to home
+        document.querySelectorAll('.nav-home').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                mainContent.style.display = 'block';
+                quranAudioPage.style.display = 'none';
+                quranBookPage.style.display = 'none';
+                document.body.style.background = 'var(--page-bg)';
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Navigation to Quran book
+        document.querySelectorAll('.nav-quran').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                mainContent.style.display = 'none';
+                quranAudioPage.style.display = 'none';
+                quranBookPage.style.display = 'block';
+                document.body.style.background = 'linear-gradient(180deg, #07102b, #0b1020)';
+                window.scrollTo(0, 0);
+            });
+        });
         
         // Navigation to audio page
         document.querySelectorAll('.nav-audio').forEach(link => {
@@ -1224,22 +1489,42 @@
                 e.preventDefault();
                 mainContent.style.display = 'none';
                 quranAudioPage.style.display = 'block';
+                quranBookPage.style.display = 'none';
                 document.body.style.background = 'linear-gradient(180deg, #070b18, #0b1020 30%, #0b1020 70%, #0a0f22)';
                 window.scrollTo(0, 0);
                 loadSurah(1);
             });
         });
         
-        // Back to home page
-        if (backButton) {
-            backButton.addEventListener('click', function(e) {
+        // Back to home from audio page
+        if (backButtonAudio) {
+            backButtonAudio.addEventListener('click', function(e) {
                 e.preventDefault();
                 mainContent.style.display = 'block';
                 quranAudioPage.style.display = 'none';
+                quranBookPage.style.display = 'none';
                 document.body.style.background = 'var(--page-bg)';
                 window.scrollTo(0, 0);
             });
         }
+        
+        // Back to home from Quran book page
+        if (backButtonQuran) {
+            backButtonQuran.addEventListener('click', function(e) {
+                e.preventDefault();
+                mainContent.style.display = 'block';
+                quranAudioPage.style.display = 'none';
+                quranBookPage.style.display = 'none';
+                document.body.style.background = 'var(--page-bg)';
+                window.scrollTo(0, 0);
+            });
+        }
+        
+        // Quran Audio Player Functionality
+        const surahSelect = document.getElementById('surahSelect');
+        const reciterSelectQuran = document.getElementById('reciterSelect');
+        const quranAudio = document.getElementById('quranAudio');
+        const ayahsContainer = document.getElementById('ayahsContainer');
         
         // Load Surah
         async function loadSurah(surahNumber) {
@@ -1331,6 +1616,166 @@
         if (surahSelect && reciterSelectQuran) {
             loadSurah(1);
         }
+        
+        // Quran Book Functionality
+        const API = 'https://api.alquran.cloud/v1';
+        const els = {
+            surahSelect: document.getElementById('surahSelectBook'),
+            mode: document.getElementById('mode'),
+            prevBtn: document.getElementById('prevBtn'),
+            nextBtn: document.getElementById('nextBtn'),
+            prevSurah: document.getElementById('prevSurah'),
+            nextSurah: document.getElementById('nextSurah'),
+            pageIndicator: document.getElementById('pageIndicator'),
+            ayahIndicator: document.getElementById('ayahIndicator'),
+            leftPage: document.getElementById('leftPage'),
+            rightPage: document.getElementById('rightPage'),
+            flipCurl: document.getElementById('flipCurl'),
+            flipInner: document.getElementById('flipInner')
+        };
+
+        let state = {
+            surahs: [], // metadata list
+            currentSurah: 1,
+            ayahs: [], // {global,inSurah,ar,en}
+            pages: [], // array of pages; each page is array of ayah indices
+            pageIndex: 0,
+            mode: 'both'
+        };
+
+        function setIndicator(){
+            const totalPages = state.pages.length || 0;
+            const cur = totalPages ? (state.pageIndex + 1) : 0;
+            els.pageIndicator.textContent = `Page ${cur}/${totalPages}`;
+            const curAyahs = state.pages[state.pageIndex] || [];
+            if(curAyahs.length) els.ayahIndicator.textContent = `Ayah ${curAyahs[0]}–${curAyahs[curAyahs.length-1]}`; else els.ayahIndicator.textContent = '—';
+        }
+
+        // Fetch surah list
+        async function fetchSurahList(){
+            try{
+                const r = await fetch(`${API}/surah`);
+                const j = await r.json();
+                state.surahs = j.data || [];
+                els.surahSelect.innerHTML = '';
+                state.surahs.forEach(s => {
+                    const opt = document.createElement('option'); opt.value = s.number; opt.textContent = `${s.number}. ${s.englishName} — ${s.name}`; els.surahSelect.appendChild(opt);
+                });
+                els.surahSelect.value = '1';
+                loadSurahBook(1);
+            }catch(e){
+                console.error(e); els.surahSelect.innerHTML = '<option>Could not load</option>';
+            }
+        }
+
+        // Load surah content (Arabic + English)
+        async function loadSurahBook(n){
+            try{
+                state.currentSurah = n; state.ayahs = []; state.pages = []; state.pageIndex = 0;
+                // Request Arabic + Saheeh International
+                const res = await fetch(`${API}/surah/${n}/editions/quran-uthmani,en.sahih`);
+                const json = await res.json();
+                if(!json || !json.data) throw new Error('bad data');
+                const ar = json.data.find(d=>d.edition.identifier==='quran-uthmani');
+                const en = json.data.find(d=>d.edition.identifier==='en.sahih' || d.edition.identifier==='en.asad');
+                const arAy = ar.ayahs || [];
+                const enAy = (en && en.ayahs) ? en.ayahs : [];
+                state.ayahs = arAy.map((a,i)=>({global:a.number,inSurah:a.numberInSurah,ar:a.text,en: enAy[i] ? enAy[i].text : ''}));
+                paginate();
+                renderSpread();
+            }catch(e){ console.error(e); alert('Failed to load surah. Try again.'); }
+        }
+
+        // Simple pagination algorithm
+        function paginate(){
+            const canvasW = 720; // internal layout width for estimation
+            const pagePad = 60; // px
+            const arSize = 36; const enSize = 18; // px
+            const approxLineHeight = (state.mode==='ar'? arSize*1.2 : state.mode==='en'? enSize*1.4 : (arSize*1.1 + enSize*1.0));
+            const pageH = 720 - pagePad*2; // approximate available height
+            const linesPerPage = Math.floor(pageH / approxLineHeight);
+
+            // estimate lines per ayah by text length
+            function estimateLines(text, size){
+                if(!text) return 0;
+                const charsPerLine = Math.floor((canvasW - pagePad*2) / (size*0.5));
+                return Math.max(1, Math.ceil(text.length / charsPerLine));
+            }
+
+            const pages = [];
+            let cur = []; let curLines = 0;
+            for(const v of state.ayahs){
+                let lines = 0;
+                if(state.mode !== 'en') lines += estimateLines(v.ar, arSize);
+                if(state.mode !== 'ar') lines += estimateLines(v.en || '', enSize);
+                lines = Math.max(1, lines);
+                if(curLines + lines > linesPerPage){ pages.push(cur); cur = []; curLines = 0; }
+                cur.push(v.inSurah); curLines += lines;
+            }
+            if(cur.length) pages.push(cur);
+            // ensure even pages for spread
+            if(pages.length % 2 !== 0) pages.push([]);
+            state.pages = pages; state.pageIndex = 0; setIndicator();
+        }
+
+        // Render a page into DOM
+        function renderPageElement(pageIdx, domElement){
+            const indices = state.pages[pageIdx] || [];
+            if(indices.length === 0){ domElement.innerHTML = '<div class="empty">—</div>'; return; }
+            const start = indices[0]; const end = indices[indices.length-1];
+            const header = `<div class="hdr"><div><strong>Surah ${state.currentSurah}</strong></div><div class="muted">Ayahs ${start}–${end}</div></div>`;
+            let body = '';
+            for(const n of indices){
+                const v = state.ayahs.find(a=>a.inSurah === n);
+                if(!v) continue;
+                if(state.mode !== 'en') body += `<div class="arab">${v.ar} <span style="font-size:15px;color:#54627f">(${v.inSurah})</span></div>`;
+                if(state.mode !== 'ar') body += `<div class="eng">${v.en}</div>`;
+            }
+            domElement.innerHTML = header + '<div class="content">' + body + '</div>';
+        }
+
+        function renderSpread(){
+            renderPageElement(state.pageIndex, els.leftPage);
+            renderPageElement(state.pageIndex+1, els.rightPage);
+            setIndicator();
+        }
+
+        // Curl animation (visual only)
+        function animateCurl(direction = 'next'){
+            // direction: 'next' or 'prev'
+            if(els.flipCurl.style.display !== 'none') return; // busy
+            const curl = els.flipCurl; const inner = els.flipInner;
+            // snapshot current right or left page content
+            const source = (direction==='next') ? els.rightPage.innerHTML : els.leftPage.innerHTML;
+            inner.innerHTML = `<div style="padding:34px">${source}</div>`;
+            curl.style.display = 'block';
+            curl.style.left = '50%';
+            curl.style.transformOrigin = 'left center';
+            curl.animate([
+                { transform: 'translateX(0) rotateY(0deg) translateZ(0)' },
+                { transform: 'translateX(-8%) rotateY(-58deg) translateZ(50px) skewX(-6deg)' }
+            ], { duration: 520, easing: 'cubic-bezier(.2,.9,.2,1)' });
+            setTimeout(()=>{ curl.style.display='none'; }, 540);
+        }
+
+        // Navigation handlers
+        function nextPage(){ if(state.pageIndex+2 >= state.pages.length) return; animateCurl('next'); setTimeout(()=>{ state.pageIndex += 2; renderSpread(); }, 260); }
+        function prevPage(){ if(state.pageIndex-2 < 0) return; animateCurl('prev'); setTimeout(()=>{ state.pageIndex -= 2; renderSpread(); }, 260); }
+
+        function nextSurah(){ const cur = state.currentSurah; if(cur < state.surahs.length) { loadSurahBook(cur+1); els.surahSelect.value = String(cur+1); } }
+        function prevSurah(){ const cur = state.currentSurah; if(cur > 1) { loadSurahBook(cur-1); els.surahSelect.value = String(cur-1); } }
+
+        // Wire up UI
+        els.nextBtn.addEventListener('click', nextPage);
+        els.prevBtn.addEventListener('click', prevPage);
+        els.nextSurah.addEventListener('click', nextSurah);
+        els.prevSurah.addEventListener('click', prevSurah);
+        els.surahSelect.addEventListener('change', (e)=> loadSurahBook(Number(e.target.value)));
+        els.mode.addEventListener('change', (e)=> { state.mode = e.target.value; paginate(); renderSpread(); });
+        window.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') nextPage(); if(e.key==='ArrowLeft') prevPage(); if(e.key==='PageDown') nextSurah(); if(e.key==='PageUp') prevSurah(); });
+
+        // Initialize Quran Book
+        fetchSurahList();
     </script>
 </body>
 </html>
